@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jim.db.h2.service.mapper.StudentRepository">
+	<resultMap id="BaseResultMap" type="com.jim.db.h2.entity.Student">
+		<id column="id" jdbcType="BIGINT" property="id"/>
+		<result column="name" jdbcType="VARCHAR" property="name"/>
+		<result column="passport_number" jdbcType="BIGINT" property="passportNumber"/>
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,
+		name,
+		passport_number
+	</sql>
+	<select id="findStudents" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List"/>
+		from student
+	</select>
+</mapper>
